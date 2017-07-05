@@ -13,10 +13,10 @@ public class AllServletRequest extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        Map<String,Object> pageVariables = new HashMap<String, Object>();
-        pageVariables.put("message","hello");
-        resp.getWriter().println(Templater.instance().getPage("page.html",pageVariables));
-
+/*        Map<String,Object> val = new HashMap<>();
+        val.put("key",req.getParameter("key"));
+        resp.getWriter().println(Templater.instance().getPage("page.html",val));*/
+        resp.getWriter().println(req.getParameter("key"));
         resp.setContentType("text/html;charset=utf-8");
         resp.setStatus(HttpServletResponse.SC_OK);
     }

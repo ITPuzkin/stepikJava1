@@ -11,11 +11,13 @@ public class MainServer {
 
         AllServletRequest allServletRequest = new AllServletRequest();
         ServletContextHandler contextHandler = new ServletContextHandler(ServletContextHandler.SESSIONS);
-        contextHandler.addServlet(new ServletHolder(allServletRequest),"/*");
+        contextHandler.addServlet(new ServletHolder(allServletRequest),"/mirror");
 
         Server server = new Server(8080);
         server.setHandler(contextHandler);
         server.start();
+        System.out.println("Server started");
         server.join();
+
     }
 }
